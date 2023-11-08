@@ -1,0 +1,25 @@
+.appContainer {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.movieShell {
+  width: 90px;
+  height: 70px;
+  border: 2px solid black;
+}
+
+.movieContainer {
+  margin-top: 100px;
+  width: 1500px;
+  height: 300px;
+  border: 2px solid black;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sideMenuContainer {
+  height: 1000px;
+  width: 200px;
+  border: 2px solid black;
+}
