@@ -68,7 +68,7 @@ function TrendingCard({
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="w-[380px] h-[200px] border-2 border-solid border-[black]"
+      className="w-[380px] h-[200px] border-2 border-solid border-[black] inline-block"
     >
       {/* <button
         onClick={() => handleUpdate(object)}
@@ -77,7 +77,7 @@ function TrendingCard({
         click me
       </button> */}
 
-      <div className="flex w-[25px] h-[25px] justify-center items-center bg-[#868686] rounded-[50%]">
+      <div className="ml-[330px] mt-2.5 flex w-[25px] h-[25px] justify-center items-center bg-[#868686] rounded-[50%]">
         <img
           src={
             bookmarked
@@ -88,7 +88,8 @@ function TrendingCard({
           onClick={() => handleUpdate(object)}
         />{" "}
       </div>
-      <div className="flex flex-row mt-10">
+
+      <div className="flex flex-row mt-[100px] ml-[20px]">
         <h6 className="text-[10px] text-[rgb(199,199,199)]">{year} • </h6>
         <img
           className="w-[10px] h-[10px]"
@@ -102,7 +103,7 @@ function TrendingCard({
         <h6 className="text-[10px] text-[rgb(199,199,199)]">{category} • </h6>
         <h6 className="text-[10px] text-[rgb(199,199,199)]">{rating}</h6>
       </div>
-      <h6 className="text-[15px] text-[rgb(248,248,248)]">{title}</h6>
+      <h6 className="text-[15px] text-[rgb(248,248,248)] ml-[20px]">{title}</h6>
     </div>
   );
 }

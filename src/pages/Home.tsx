@@ -10,47 +10,10 @@ import MovieShell from "../components/MovieShell";
 import axios from "axios";
 import TrendingCard from "../components/TrendingCard";
 
-// function searchMovie() {
-//   const newArray = data.map((movie) => {
-//     return movie.title;
-//   });
-//   console.log(newArray);
-// }
-
-// const newArray = data.map((movie) => {
-//   return movie.title;
-// });
-
 function Home({}) {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
   const [formData, setFormData] = useState({ title: "testing", id: "34" });
-
-  // const handleSubmit = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:3000/movies", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error("Network response was not ok");
-  //     }
-
-  //     // Assuming you want to handle the response (e.g., display a success message)
-  //     const data = await response.json();
-  //     console.log("Response from JSON Server:", data);
-
-  //     // Clear the form inputs
-  //     setFormData({ title: "", id: "" });
-  //   } catch (error) {
-  //     console.error("Error:", error);
-  //   }
-
-  // };
 
   const handleUpdate = async (movie: any) => {
     if (movie.isBookmarked) {
@@ -114,29 +77,6 @@ function Home({}) {
       });
   }, []);
 
-  function handleSearch() {
-    // let renderedElement;
-    // if (search === "") {
-    //   renderedElement = movies.map((movie) => {
-    //     if (!movie.isTrending) {
-    //       return (
-    //         <MovieShell
-    //           title={movie.title}
-    //           bookmarked={movie.isBookmarked}
-    //           object={movie}
-    //         />
-    //       );
-    //     }
-    //   });
-    // } else {
-    //   renderedElement = data.map((movie) => {
-    //     if (movie.title.toLowerCase().includes(search.toLowerCase())) {
-    //       return <MovieShell title={movie.title} />;
-    //     }
-    //   });
-    // }
-  }
-
   let renderedElement;
 
   if (search === "") {
@@ -147,6 +87,10 @@ function Home({}) {
             title={movie.title}
             bookmarked={movie.isBookmarked}
             object={movie}
+            rating={movie.rating}
+            category={movie.category}
+            year={movie.year}
+            src={movie.thumbnail.regular.medium}
           />
         );
       }
@@ -159,6 +103,10 @@ function Home({}) {
             title={movie.title}
             bookmarked={movie.isBookmarked}
             object={movie}
+            rating={movie.rating}
+            category={movie.category}
+            year={movie.year}
+            src={movie.thumbnail.regular.medium}
           />
         );
       }
@@ -167,30 +115,47 @@ function Home({}) {
 
   return (
     <>
-      {/* <div className="content">
-        <input type="text" onChange={(e) => setSearch(e.target.value)} />
-        <button onClick={() => console.log(newArray)}>test</button>
-        <Trending />;<div className="movieContainer">{renderedElement}</div>
-      </div> */}
-
-      <div>
-        <input
-          className="border-2 border-solid border-[black]"
-          type="text"
-          onChange={(e) => setSearch(e.target.value)}
-        />
+      <div className=" flex w-full flex-col border-2 border-solid border-[blue] bg-[rgb(0,4,27)]">
+        <div className=" flex flex-row mt-[20px]">
+          <img
+            className="w-[20px] h-[20px]"
+            src="../../icon-search.svg"
+            alt=""
+          />
+          <input
+            placeholder="Search for movies or TV series"
+            className="border-2 border-solid border-[black] text-[15px] w-[300px] h-[20px] bg-[rgb(0,4,27)] "
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
         <Trending />
-
-        {renderedElement}
-        {movies?.map((movie: any) => {
-          return (
-            <>
-              {/* <div key={movie?.title}>{movie?.title}</div>;
-              <button onClick={() => handleUpdate(movie)}>click me</button> */}
-            </>
-          );
-        })}
+        <h1>Recomended for you</h1>
+        <div className="flex flex-row flex-wrap border-2 border-solid border-[red]">
+          {renderedElement}
+        </div>
       </div>
+
+      {/* <div className="flex flex-col border-solid border-[blue]">
+        <div className="flex flex-row mt-[20px]">
+          <img
+            className="w-[20px] h-[20px]"
+            src="../../icon-search.svg"
+            alt=""
+          />
+          <input
+            placeholder="Search for movies or TV series"
+            className="border-2 border-solid border-[black] text-[15px] w-[250px] bg-[rgb(0,4,27)] "
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        <Trending />
+        <h1>Recomended for you</h1>
+        <div className="flex flex-row flex-wrap border-2 border-solid border-[red]">
+          {renderedElement}
+        </div>
+      </div> */}
     </>
   );
 }

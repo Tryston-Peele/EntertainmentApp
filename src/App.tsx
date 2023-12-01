@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="appContainer">
+        <div className="flex flex-row w-full h-screen border-2 border-solid border-[green] bg-[rgb(0,4,27)] ">
           <SideMenu />
           <Routes>
             <Route path="/" element={<Home data={data} />}></Route>

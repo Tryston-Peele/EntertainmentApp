@@ -5,7 +5,7 @@ import TrendingCard from "./TrendingCard";
 import "./trendingstyles.css";
 function Trending() {
   return (
-    <div className="w-[2000px] h-[250px] flex justify-between items-center border-2 border-solid border-[black]">
+    <div className="flex border-2 border-solid h-[200px] min-h-[200px] overflow-x-auto overfloww-y-hidden border-[red]">
       {data.movies.map((movie) => {
         if (movie.isTrending) {
           return (
